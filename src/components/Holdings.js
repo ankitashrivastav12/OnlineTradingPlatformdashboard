@@ -6,6 +6,14 @@ const API = process.env.REACT_APP_API_URL;
 
 const Holdings = () => {
   const [allHoldings, setAllHoldings] = useState([]);
+  useEffect(() => {
+  console.log("API URL:", process.env.REACT_APP_API_URL);
+
+  axios
+    .get(`${process.env.REACT_APP_API_URL}/api/holdings`)
+    .then((res) => setAllHoldings(res.data || []))
+    .catch((err) => console.error(err));
+}, []);
 
   useEffect(() => {
     axios.get(`${process.env.REACT_APP_API_URL}/api/holdings`)
