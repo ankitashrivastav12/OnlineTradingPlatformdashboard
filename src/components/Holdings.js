@@ -2,30 +2,20 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { VerticalGraph } from "./VerticalGraph";
 
-const API = process.env.REACT_APP_API_URL;
-
 const Holdings = () => {
   const [allHoldings, setAllHoldings] = useState([]);
+
   useEffect(() => {
-  console.log("API URL:", process.env.REACT_APP_API_URL);
-
-  axios.get("https://onlinetradingplatformbackend.onrender.com/api/holdings")
-
-    .then((res) => setAllHoldings(res.data || []))
-    .catch((err) => console.error(err));
+  axios
+    .get(`${process.env.REACT_APP_API_URL}/holdings`)
+    .then((res) => {
+      setAllHoldings(res.data || []);
+    })
+    .catch((err) => {
+      console.error("Holdings API error:", err);
+    });
 }, []);
 
-  useEffect(() => {
-    axios.get(`${process.env.REACT_APP_API_URL}/api/holdings`)
-
-
-      .then((res) => {
-        setAllHoldings(res.data || []);
-      })
-      .catch((err) => {
-        console.error("Holdings API error:", err);
-      });
-  }, []);
 
   /* ================= GRAPH DATA ================= */
   const data = {
@@ -68,8 +58,11 @@ const Holdings = () => {
 
                 const curValue = price * qty;
                 const pnl = curValue - avg * qty;
-                const profClass = pnl >= 0 ? "profit" : "loss";
-                const dayClass = stock.day?.startsWith("-") ? "loss" : "profit";
+
+                const pnlClass = pnl >= 0 ? "profit" : "loss";
+                const dayClass = stock.day?.startsWith("-")
+                  ? "loss"
+                  : "profit";
 
                 return (
                   <tr key={stock._id}>
@@ -78,8 +71,8 @@ const Holdings = () => {
                     <td>{avg.toFixed(2)}</td>
                     <td>{price.toFixed(2)}</td>
                     <td>{curValue.toFixed(2)}</td>
-                    <td className={profClass}>{pnl.toFixed(2)}</td>
-                    <td className={profClass}>{stock.net}</td>
+                    <td className={pnlClass}>{pnl.toFixed(2)}</td>
+                    <td className={pnlClass}>{stock.net}</td>
                     <td className={dayClass}>{stock.day}</td>
                   </tr>
                 );
