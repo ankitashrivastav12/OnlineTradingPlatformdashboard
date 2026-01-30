@@ -1,0 +1,384 @@
+/* =====================================================
+   GLOBAL
+===================================================== */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto;
+  background: #f5f6f8;
+  color: #222;
+}
+
+/* =====================================================
+   DASHBOARD LAYOUT
+===================================================== */
+.dashboard-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Main content */
+.content {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+/* CENTERED CONTENT (FIXES INDENTATION ISSUE) */
+.dashboard-content {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 12px;
+}
+
+/* MOBILE FIRST */
+@media (max-width: 768px) {
+  .dashboard-container {
+    flex-direction: column;
+  }
+
+  .content {
+    padding: 14px;
+  }
+}
+
+/* =====================================================
+   TOP BAR
+===================================================== */
+.topbar-container {
+  height: 56px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 14px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.08);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+/* ================= MARKET INDICES ================= */
+.indices-container {
+  display: flex;
+  gap: 24px;
+  padding: 0 20px;
+  align-items: center;
+}
+
+.index-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 90px;
+}
+
+.index-name {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #666;
+}
+
+.index-value {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.index-change {
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.up {
+  color: #2e7d32;
+}
+
+.down {
+  color: #d32f2f;
+}
+
+/* Hide indices on mobile */
+@media (max-width: 768px) {
+  .indices-container {
+    display: none;
+  }
+}
+
+/* =====================================================
+   MENU
+===================================================== */
+.menu-container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.menus ul {
+  list-style: none;
+  display: flex;
+  gap: 16px;
+  padding: 0;
+  margin: 0;
+}
+
+.menu {
+  font-size: 0.8rem;
+  color: #555;
+}
+
+.menu.selected {
+  color: #f56834;
+  font-weight: 500;
+}
+
+/* =====================================================
+   WATCHLIST
+===================================================== */
+.watchlist-container {
+  width: 320px;
+  background: #fff;
+  border-right: 1px solid #eee;
+  overflow-y: auto;
+}
+
+@media (max-width: 768px) {
+  .watchlist-container {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #ddd;
+  }
+}
+
+.search {
+  width: 100%;
+  padding: 12px 14px;
+  border: none;
+  border-bottom: 1px solid #eee;
+  font-size: 0.85rem;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.list li {
+  padding: 12px 14px;
+  border-bottom: 1px solid #eee;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.itemInfo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.actions {
+  margin-top: 8px;
+  display: none;
+  gap: 8px;
+}
+
+.list li:hover .actions {
+  display: flex;
+}
+
+@media (max-width: 768px) {
+  .actions {
+    display: flex;
+  }
+}
+
+.buy {
+  background: #4184f3;
+  color: #fff;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 6px;
+}
+
+.sell {
+  background: #ff5722;
+  color: #fff;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 6px;
+}
+
+/* =====================================================
+   SUMMARY CARDS
+===================================================== */
+.section {
+  background: #fff;
+  padding: 16px;
+  border-radius: 10px;
+  margin-bottom: 16px;
+}
+
+.summary-data {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .summary-data {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+}
+
+/* =====================================================
+   HOLDINGS TABLE
+===================================================== */
+.order-table {
+  background: #fff;
+  border-radius: 10px;
+  padding: 10px 0;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th {
+  font-size: 13px;
+  color: #666;
+  padding: 10px 16px;
+  text-align: left;
+  font-weight: 500;
+}
+
+td {
+  padding: 12px 16px;
+  font-size: 14px;
+  border-bottom: 1px solid #f1f1f1;
+}
+
+table tr:last-child td {
+  border-bottom: none;
+}
+
+.right {
+  text-align: right;
+}
+
+.profit {
+  color: #2dbf64;
+}
+
+.loss {
+  color: #df514c;
+}
+
+/* =====================================================
+   MOBILE TABLE → CARDS
+===================================================== */
+@media (max-width: 768px) {
+  table thead {
+    display: none;
+  }
+
+  table tr {
+    display: block;
+    background: #fff;
+    margin-bottom: 12px;
+    padding: 14px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  }
+
+  table td {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 0;
+    border-bottom: none;
+  }
+
+  table td::before {
+    content: attr(data-label);
+    font-weight: 500;
+    color: #666;
+  }
+}
+
+/* =====================================================
+   HOLDINGS SUMMARY ROW
+===================================================== */
+.summary-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin: 28px 0;
+  text-align: center;
+}
+
+.summary-row h5 {
+  margin-bottom: 4px;
+}
+
+.summary-row p {
+  font-size: 13px;
+  color: #777;
+}
+
+/* =====================================================
+   GRAPH
+===================================================== */
+.graph-card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 24px;
+  margin-top: 24px;
+}
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+.btn {
+  background: #4184f3;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  text-decoration: none;
+}
+/* ================= HOLDINGS CONTENT FIX ================= */
+
+/* This fixes the "stuck to right" issue */
+.holdings-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* Table wrapper */
+.order-table {
+  background: #fff;
+  border-radius: 10px;
+  padding: 8px 0;
+}
+
+/* Make table breathe */
+.order-table table {
+  width: 100%;
+}
+
+/* Align summary row properly */
+.holdings-summary {
+  max-width: 1100px;
+  margin: 30px auto 0;
+  padding: 0 16px;
+}
