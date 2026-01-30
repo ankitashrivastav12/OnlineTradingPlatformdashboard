@@ -9,8 +9,8 @@ const Holdings = () => {
   useEffect(() => {
   console.log("API URL:", process.env.REACT_APP_API_URL);
 
-  axios
-    .get(`${process.env.REACT_APP_API_URL}/api/holdings`)
+  axios.get("https://onlinetradingplatformbackend.onrender.com/api/holdings")
+
     .then((res) => setAllHoldings(res.data || []))
     .catch((err) => console.error(err));
 }, []);
