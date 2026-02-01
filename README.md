@@ -59,6 +59,26 @@ OnlineTradingPlatformdashboard/
 
 ### Screenshots
 
+### Dashboard
+
+<img width="1886" height="895" alt="image" src="https://github.com/user-attachments/assets/b1045b0d-dcb4-4a88-8dce-37695aa4b5fc" />
+
+### Orders
+
+<img width="1891" height="910" alt="image" src="https://github.com/user-attachments/assets/7f667cb1-351a-45c9-9db8-26c7fa9f22b8" />
+
+### Holdings
+
+<img width="1892" height="910" alt="image" src="https://github.com/user-attachments/assets/1222fd9d-b1c0-4531-a5ae-2162e7d12948" />
+
+### Positions
+
+<img width="1886" height="902" alt="image" src="https://github.com/user-attachments/assets/b88cce28-8bf4-4388-a5ec-a7e5fc9c3696" />
+
+### Funds
+
+<img width="1896" height="907" alt="image" src="https://github.com/user-attachments/assets/fcefedc0-9ff9-4c54-9b16-518074d7e00a" />
+
 🎯 Project Objective
 
 1. Design a professional trading dashboard
