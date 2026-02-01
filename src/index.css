@@ -27,14 +27,14 @@ body {
   overflow-y: auto;
 }
 
-/* CENTERED CONTENT (FIXES INDENTATION ISSUE) */
+/* CENTERED CONTENT */
 .dashboard-content {
   max-width: 1100px;
   margin: 0 auto;
   padding: 0 12px;
 }
 
-/* MOBILE FIRST */
+/* MOBILE */
 @media (max-width: 768px) {
   .dashboard-container {
     flex-direction: column;
@@ -283,9 +283,7 @@ table tr:last-child td {
   color: #df514c;
 }
 
-/* =====================================================
-   MOBILE TABLE → CARDS
-===================================================== */
+/* ================= MOBILE TABLE → CARDS ================= */
 @media (max-width: 768px) {
   table thead {
     display: none;
@@ -315,7 +313,7 @@ table tr:last-child td {
 }
 
 /* =====================================================
-   HOLDINGS SUMMARY ROW
+   HOLDINGS SUMMARY
 ===================================================== */
 .summary-row {
   display: grid;
@@ -355,30 +353,66 @@ table tr:last-child td {
   font-size: 0.85rem;
   text-decoration: none;
 }
-/* ================= HOLDINGS CONTENT FIX ================= */
 
-/* This fixes the "stuck to right" issue */
-.holdings-container {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 16px;
+/* =====================================================
+   FUNDS UI (FINAL)
+===================================================== */
+
+.funds-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #444;
+  margin-bottom: 8px;
 }
 
-/* Table wrapper */
-.order-table {
+/* Card */
+.funds-table {
   background: #fff;
-  border-radius: 10px;
+  border-radius: 8px;
+  padding: 12px 14px;
+  border: 1px solid #eaeaea;
+  margin-bottom: 16px;
+}
+
+/* Row */
+.funds-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 8px 0;
+  font-size: 13px;
 }
 
-/* Make table breathe */
-.order-table table {
-  width: 100%;
+/* Label */
+.funds-label {
+  color: #777;
+  font-weight: 500;
 }
 
-/* Align summary row properly */
-.holdings-summary {
-  max-width: 1100px;
-  margin: 30px auto 0;
-  padding: 0 16px;
+/* Value */
+.funds-value {
+  font-weight: 600;
+  color: #222;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Highlight */
+.funds-value.highlight {
+  color: #387ed1;
+  font-size: 14px;
+}
+
+/* Divider */
+.funds-divider {
+  height: 1px;
+  background: #eee;
+  margin: 10px 0;
+}
+
+/* Mobile compact */
+@media (max-width: 576px) {
+  .funds-row {
+    font-size: 12.5px;
+    padding: 6px 0;
+  }
 }

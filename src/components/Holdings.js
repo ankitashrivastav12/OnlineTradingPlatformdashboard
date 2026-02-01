@@ -66,15 +66,22 @@ const Holdings = () => {
 
                 return (
                   <tr key={stock._id}>
-                    <td>{stock.name}</td>
-                    <td>{qty}</td>
-                    <td>{avg.toFixed(2)}</td>
-                    <td>{price.toFixed(2)}</td>
-                    <td>{curValue.toFixed(2)}</td>
-                    <td className={pnlClass}>{pnl.toFixed(2)}</td>
-                    <td className={pnlClass}>{stock.net}</td>
-                    <td className={dayClass}>{stock.day}</td>
-                  </tr>
+                  <td data-label="Instrument">{stock.name}</td>
+                  <td data-label="Qty">{qty}</td>
+                  <td data-label="Avg cost">{avg.toFixed(2)}</td>
+                  <td data-label="LTP">{price.toFixed(2)}</td>
+                  <td data-label="Cur. val">{curValue.toFixed(2)}</td>
+                  <td data-label="P&L" className={pnlClass}>
+                    {pnl.toFixed(2)}
+                  </td>
+                  <td data-label="Net chg." className={pnlClass}>
+                    {stock.net}
+                  </td>
+                  <td data-label="Day chg." className={dayClass}>
+                    {stock.day}
+                  </td>
+                </tr>
+
                 );
               })}
             </tbody>
